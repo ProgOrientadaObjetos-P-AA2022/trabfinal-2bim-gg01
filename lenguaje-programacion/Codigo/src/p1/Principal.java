@@ -66,7 +66,7 @@ public class Principal {
                             PlanPostPagoMegas plan = new PlanPostPagoMegas(
                                     nom, ced, ciu, marca, modelo, numero,
                                     mN, cN, mI, cI);
-                            
+                            plan.calcularPagoMensual();
                             c.insertarPlanPostPagoMegas(plan);
                         }
                         case 2 -> {
@@ -79,6 +79,9 @@ public class Principal {
                 } else {
                     if (op == 2) {
                         System.out.println("------Base de Datos------");
+                        for (int i = 0; i < c.obtenerDataPlanes().size(); i++) {
+                            System.out.printf("%s", c.obtenerDataPlanes().get(i));
+                        }
                     } else {
                         System.out.println("Ingrese una opción válida(1 o 2)");
                     }

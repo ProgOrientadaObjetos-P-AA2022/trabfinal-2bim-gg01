@@ -24,7 +24,17 @@ public class PlanPostPagoMegas extends PlanCelular {
         costoNacional = cN;
         minInter = mI;
         costoInter = cI;
-        calcularPagoMensual();
+    }
+
+    public PlanPostPagoMegas(String n, String c, String ciu, String mar,
+            String mod, String num, double mN, double cN, double mI, double cI,
+            double vM) {
+        super(n, c, ciu, mar, mod, num);
+        minNacional = mN;
+        costoNacional = cN;
+        minInter = mI;
+        costoInter = cI;
+        costoMensual = vM;
     }
 
     public void establecerMinNacional(double m) {
@@ -62,5 +72,34 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     public double obtenerCostoInter() {
         return costoInter;
+    }
+
+    @Override
+    public String toString() {
+        String reporte = String.format("Plan Post Pago Megas\n"
+                + "  Nombres: %s\n"
+                + "  Cedula: %s\n"
+                + "  Ciudad: %s\n"
+                + "  Marca: %s\n"
+                + "  Modelo: %s\n"
+                + "  Numero: %s\n"
+                + "  Cantidad Minutos Nacionales: %.2f\n"
+                + "  Costo Minutos Nacionales: %.3f\n"
+                + "  Cantidad Minutos Internacionales: %.3f\n"
+                + "  Costo Minutos Internacionales: %.2f\n"
+                + " Valor Mensual: %.2f\n",
+                obtenerNombres(),
+                obtenerCedula(),
+                obtenerCiudad(),
+                obtenerMarcaCelular(),
+                obtenerModeloCelular(),
+                obtenerNumeroCelular(),
+                obtenerMinNacional(),
+                obtenerCostoNacional(),
+                obtenerMinInter(),
+                obtenerCostoInter(),
+                obtenerCostoMensual());
+
+        return reporte;
     }
 }

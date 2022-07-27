@@ -69,22 +69,29 @@ public class Enlace {
              
         }  
     }
-    /*
+    
     public ArrayList<PlanCelular> obtenerDataPlanes() {  
         ArrayList<PlanCelular> lista = new ArrayList<>();
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = "Select * from trabajadores;";
+            String data = "Select * from PlanPostPagoMegas;";
             
             ResultSet rs = statement.executeQuery(data);
             while(rs.next()){
-                PlanCelular miPersona = new PlanCelular(rs.getString("cedula"),
+                PlanPostPagoMegas plan = new PlanPostPagoMegas(
                 rs.getString("nombres"),
-                rs.getString("correo"),
-                rs.getDouble("sueldo"),
-                rs.getString("mesSueldo"));
-                lista.add(miPersona);
+                rs.getString("cedula"),
+                rs.getString("ciudad"),
+                rs.getString("marca"),
+                rs.getString("modelo"),
+                rs.getString("numero"),
+                rs.getDouble("minNacional"),
+                rs.getDouble("costoNacional"),
+                rs.getDouble("minInter"),
+                rs.getDouble("costoInter"),
+                rs.getDouble("costoMensual"));
+                lista.add(plan);
             }
             
             obtenerConexion().close();
@@ -95,6 +102,6 @@ public class Enlace {
         }  
         return lista;
     }
-    */
+    
      
 } 
