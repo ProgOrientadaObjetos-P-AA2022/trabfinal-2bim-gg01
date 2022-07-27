@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import p2.PlanCelular;
+import p2.PlanPostPagoMegas;
 
 
 public class Enlace {
@@ -21,7 +22,7 @@ public class Enlace {
 
         try {  
             // db parameters  
-            String url = "jdbc:sqlite:bd/base001.bd";  
+            String url = "jdbc:sqlite:bd/base01.base";  
             // create a connection to the database  
             conn = DriverManager.getConnection(url);  
             // System.out.println(conn.isClosed());
@@ -37,28 +38,36 @@ public class Enlace {
         return conn;
     }
     
-    public void insertarTrabajador(PlanCelular trabajador) {  
+    public void insertarPlanPostPagoMegas(PlanPostPagoMegas plan) {  
   
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = String.format("INSERT INTO trabajadores "
-                    + "(cedula, nombres, correo, sueldo, mesSueldo) "
-                    + "values ('%s', '%s', '%s', '%.2f', '%s')", 
-                    trabajador.obtenerCedula(), 
-                    trabajador.obtenerNombres(),
-                    trabajador.obtenerCorreo(),
-                    trabajador.obtenerSueldo(),
-                    trabajador.obtenerMesSueldo());
+            String data = String.format("INSERT INTO PlanPostPagoMegas "
+                    + "(nombres, cedula, ciudad, marcaCelular, modeloCelular, "
+                    + "numeroCelular, minNacional, costoNacional, "
+                    + "minInter, costoInter, costoMensual) "
+                    + "values ('%s', '%s', '%s', '%s', '%s', '%s')", 
+                    plan.obtenerNombres(),
+                    plan.obtenerCedula(),
+                    plan.obtenerCiudad(),
+                    plan.obtenerMarcaCelular(),
+                    plan.obtenerModeloCelular(),
+                    plan.obtenerNumeroCelular(),
+                    plan.obtenerMinNacional(),
+                    plan.obtenerCostoNacional(),
+                    plan.obtenerMinInter(),
+                    plan.obtenerCostoInter(),
+                    plan.obtenerCostoMensual());
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {  
-             System.out.println("Exception: insertarTrabajador");
+             System.out.println("Exception: insertarPagoMegas");
              System.out.println(e.getMessage());  
              
         }  
     }
-    
+    /*
     public ArrayList<PlanCelular> obtenerDataPlanes() {  
         ArrayList<PlanCelular> lista = new ArrayList<>();
         try{  
@@ -84,5 +93,6 @@ public class Enlace {
         }  
         return lista;
     }
+    */
      
 } 
