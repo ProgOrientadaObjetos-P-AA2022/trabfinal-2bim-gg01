@@ -24,6 +24,7 @@ public class PlanPostPagoMegas extends PlanCelular {
         costoNacional = cN;
         minInter = mI;
         costoInter = cI;
+        calcularPagoMensual();
     }
 
     public void establecerMinNacional(double m) {

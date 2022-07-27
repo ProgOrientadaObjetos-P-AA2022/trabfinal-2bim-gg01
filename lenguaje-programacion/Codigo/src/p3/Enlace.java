@@ -22,11 +22,11 @@ public class Enlace {
 
         try {  
             // db parameters  
-            String url = "jdbc:sqlite:bd/base01.base";  
+            String url = "jdbc:sqlite:bd/base.db";  
             // create a connection to the database  
             conn = DriverManager.getConnection(url);  
             // System.out.println(conn.isClosed());
-            // System.out.println("Connection to SQLite has been established.");  
+            //System.out.println("Connection to SQLite has been established.");  
               
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
@@ -44,10 +44,12 @@ public class Enlace {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
             String data = String.format("INSERT INTO PlanPostPagoMegas "
-                    + "(nombres, cedula, ciudad, marcaCelular, modeloCelular, "
-                    + "numeroCelular, minNacional, costoNacional, "
+                    + "(nombres, cedula, ciudad, marca, modelo, "
+                    + "numero, minNacional, costoNacional,"
                     + "minInter, costoInter, costoMensual) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', '%s')", 
+                    + "values ('%s', '%s', '%s', '%s', '%s', "
+                    + "'%s', '%.2f', '%.2f', "
+                    + "'%.2f', '%.2f', '%.2f')", 
                     plan.obtenerNombres(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),
