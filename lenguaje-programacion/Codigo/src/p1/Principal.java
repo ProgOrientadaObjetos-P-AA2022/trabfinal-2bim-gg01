@@ -3,7 +3,7 @@ package p1;
 import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import p2.PlanPostPagoMegas;
+import p2.PlanPostPagoMinutos;
 import p3.Enlace;
 
 /**
@@ -30,8 +30,8 @@ public class Principal {
                 op = entrada.nextInt();
                 if (op == 1) {
                     System.out.println("Ingrese un tipo de Plan Celular\n"
-                            + " 1 -> Plan Megas\n"
-                            + " 2 -> Plan Minutos\n"
+                            + " 1 -> Plan Minutos\n"
+                            + " 2 -> Plan Megas\n"
                             + " 3 -> Plan Minutos-Megas\n"
                             + " 4 -> Plan Minutos-Megas Económico");
                     opc = entrada.nextInt();
@@ -63,11 +63,11 @@ public class Principal {
                                     + "costo por Minuto Internacional");
                             double cI = entrada.nextDouble();
 
-                            PlanPostPagoMegas plan = new PlanPostPagoMegas(
+                            PlanPostPagoMinutos plan = new PlanPostPagoMinutos(
                                     nom, ced, ciu, marca, modelo, numero,
                                     mN, cN, mI, cI);
                             plan.calcularPagoMensual();
-                            c.insertarPlanPostPagoMegas(plan);
+                            c.insertarPlanPostPagoMinutos(plan);
                         }
                         case 2 -> {
                         }
@@ -80,10 +80,10 @@ public class Principal {
                     if (op == 2) {
                         System.out.println("------Base de Datos------");
                         for (int i = 0; i < c.obtenerDataPlanes().size(); i++) {
-                            System.out.printf("%s", c.obtenerDataPlanes().get(i));
+                          System.out.printf("%s", c.obtenerDataPlanes().get(i));
                         }
                     } else {
-                        System.out.println("Ingrese una opción válida(1 o 2)");
+                        System.out.println("Ingrese una opción válida");
                     }
                 }
             } catch (InputMismatchException e) {

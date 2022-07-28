@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import p2.PlanCelular;
-import p2.PlanPostPagoMegas;
+import p2.PlanPostPagoMinutos;
 
 
 public class Enlace {
@@ -38,7 +38,7 @@ public class Enlace {
         return conn;
     }
     
-    public void insertarPlanPostPagoMegas(PlanPostPagoMegas plan) {  
+    public void insertarPlanPostPagoMinutos(PlanPostPagoMinutos plan) {  
   
         try{  
             establecerConexion();
@@ -79,7 +79,7 @@ public class Enlace {
             
             ResultSet rs = statement.executeQuery(data);
             while(rs.next()){
-                PlanPostPagoMegas plan = new PlanPostPagoMegas(
+                PlanPostPagoMinutos plan = new PlanPostPagoMinutos(
                 rs.getString("nombres"),
                 rs.getString("cedula"),
                 rs.getString("ciudad"),
