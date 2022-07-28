@@ -43,7 +43,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         costoGb = n;
     }
 
-    public void establecerPDescuento(double n) {
+    public void establecerPorcentajeDes(double n) {
         porcentajeDes = n / 100;
     }
 
@@ -63,7 +63,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         return costoGb;
     }
 
-    public double obtenerPDescuento() {
+    public double obtenerPorcentajeDes() {
         return porcentajeDes;
     }
 
@@ -92,7 +92,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
                 obtenerCostoMinuto(),
                 obtenerMegasGb(),
                 obtenerCostoGb(),
-                obtenerPDescuento() * 100,
+                obtenerPorcentajeDes() * 100,
                 obtenerCostoMensual());
         return cadena;
     }

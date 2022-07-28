@@ -93,13 +93,13 @@ public class Principal {
                             int numG = entrada.nextInt();
                             System.out.println("Ingrese el Costo por Mega:");
                             double cosG = entrada.nextDouble();
-                            PlanPostPagoMinutosMegas mm
+                            PlanPostPagoMinutosMegas plan3
                                     = new PlanPostPagoMinutosMegas(
                                             nom, ced, ciu, marca, modelo, numero,
                                             min, costo, numG, cosG);
-                            mm.calcularPagoMensual();
+                            plan3.calcularPagoMensual();
 
-                            c.insertarPlanMinutosMegas(mm);
+                            c.insertarPostPagoMinutosMegas(plan3);
 
                         }
 
@@ -112,16 +112,18 @@ public class Principal {
                             int numG = entrada.nextInt();
                             System.out.println("Ingrese el Costo por Mega:");
                             double cosG = entrada.nextDouble();
-                            PlanPostPagoMinutosMegasEconomico mmE
+                            PlanPostPagoMinutosMegasEconomico plan4
                                     = new PlanPostPagoMinutosMegasEconomico(
                                             nom, ced, ciu, marca, modelo, numero,
                                             min, costo, numG, cosG, 10);
-                            mmE.calcularPagoMensual();
+                            plan4.calcularPagoMensual();
 
-                            c.insertarPlanMinutosMegasEc(mmE);
+                            c.insertarPostPagoMinutosMegasEc(plan4);
                         }
                     }
-                } else {
+                }
+                else {
+                    
                     if (op == 2) {
                         System.out.println("------Base de Datos------");
                         for (int i = 0; i < c.obtenerDataPlanes().size(); i++) {

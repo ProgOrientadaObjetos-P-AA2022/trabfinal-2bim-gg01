@@ -99,8 +99,8 @@ public class Enlace {
         }
         return listamin;
     }
-    
-        public void insertarPostPagoMegas(PlanPostPagoMegas plan) {
+
+    public void insertarPostPagoMegas(PlanPostPagoMegas plan) {
 
         try {
             establecerConexion();
@@ -160,6 +160,138 @@ public class Enlace {
 
         }
         return listameg;
+    }
+
+    public void insertarPostPagoMinutosMegas(PlanPostPagoMinutosMegas plan) {
+
+        try {
+            establecerConexion();
+            Statement statement = obtenerConexion().createStatement();
+            String data = String.format("INSERT INTO PlanPostPagoMinutosMegas "
+                    + "(nombres, cedula, ciudad, marca, modelo, "
+                    + "numero, minutos, costoMinuto, megasGb, costoGb, costoMensual) "
+                    + "values ('%s', '%s', '%s', '%s', '%s', "
+                    + "'%s', '%.2f', '%.2f','%.2f', '%.2f', '%.2f')",
+                    plan.obtenerNombres(),
+                    plan.obtenerCedula(),
+                    plan.obtenerCiudad(),
+                    plan.obtenerMarcaCelular(),
+                    plan.obtenerModeloCelular(),
+                    plan.obtenerNumeroCelular(),
+                    plan.obtenerMinutos(),
+                    plan.obtenerCostoMinuto(),
+                    plan.obtenerMegasGb(),
+                    plan.obtenerCostoGb(),
+                    plan.obtenerCostoMensual());
+            System.out.println("\n");
+            statement.executeUpdate(data);
+            obtenerConexion().close();
+        } catch (SQLException e) {
+            System.out.println("Exception: insertarPostPagoMinutosMegas");
+            System.out.println(e.getMessage());
+
+        }
+    }
+
+    public ArrayList<PlanPostPagoMinutosMegas> obtenerDataPostPagoMinutosMegas() {
+        ArrayList<PlanPostPagoMinutosMegas> listaminmeg = new ArrayList<>();
+        try {
+            establecerConexion();
+            Statement statement = obtenerConexion().createStatement();
+            String data = "Select * from PlanPostPagoMinutosMegas;";
+
+            ResultSet rs = statement.executeQuery(data);
+            while (rs.next()) {
+                PlanPostPagoMinutosMegas plan = new PlanPostPagoMinutosMegas(
+                        rs.getString("nombres"),
+                        rs.getString("cedula"),
+                        rs.getString("ciudad"),
+                        rs.getString("marca"),
+                        rs.getString("modelo"),
+                        rs.getString("numero"),
+                        rs.getDouble("minutos"),
+                        rs.getDouble("costoMinuto"),
+                        rs.getDouble("megasGb"),
+                        rs.getDouble("costoGb"));
+                plan.calcularPagoMensual();
+                listaminmeg.add(plan);
+            }
+
+            obtenerConexion().close();
+        } catch (SQLException e) {
+            System.out.println("Exception: insertarPostPagoMinutosMegas");
+            System.out.println(e.getMessage());
+
+        }
+        return listaminmeg;
+
+    }
+
+    public void insertarPostPagoMinutosMegasEc(PlanPostPagoMinutosMegasEconomico plan) {
+
+        try {
+            establecerConexion();
+            Statement statement = obtenerConexion().createStatement();
+            String data = String.format("INSERT INTO PlanPostPagoMinutosMegasEconomico "
+                    + "(nombres, cedula, ciudad, marca, modelo,numero,"
+                    + " minutos, costoMinuto, megasGb, costoGb, porcentajeDes, "
+                    + "costoMensual) "
+                    + "values ('%s', '%s', '%s', '%s', '%s', "
+                    + "'%s', '%.2f', '%.2f','%.2f', '%.2f', '%.2f')",
+                    plan.obtenerNombres(),
+                    plan.obtenerCedula(),
+                    plan.obtenerCiudad(),
+                    plan.obtenerMarcaCelular(),
+                    plan.obtenerModeloCelular(),
+                    plan.obtenerNumeroCelular(),
+                    plan.obtenerMinutos(),
+                    plan.obtenerCostoMinuto(),
+                    plan.obtenerMegasGb(),
+                    plan.obtenerCostoGb(),
+                    plan.obtenerPorcentajeDes(),
+                    plan.obtenerCostoMensual());
+            System.out.println("\n");
+            statement.executeUpdate(data);
+            obtenerConexion().close();
+        } catch (SQLException e) {
+            System.out.println("Exception: insertarPostPagoMinutosMegasEc");
+            System.out.println(e.getMessage());
+
+        }
+    }
+
+    public ArrayList<PlanPostPagoMinutosMegasEconomico> obtenerDataPostPagoMinutosMegasEc() {
+        ArrayList<PlanPostPagoMinutosMegasEconomico> listaec = new ArrayList<>();
+        try {
+            establecerConexion();
+            Statement statement = obtenerConexion().createStatement();
+            String data = "Select * from PlanPostPagoMinutosMegasEconomico;";
+
+            ResultSet rs = statement.executeQuery(data);
+            while (rs.next()) {
+                PlanPostPagoMinutosMegasEconomico plan = new PlanPostPagoMinutosMegasEconomico(
+                        rs.getString("nombres"),
+                        rs.getString("cedula"),
+                        rs.getString("ciudad"),
+                        rs.getString("marca"),
+                        rs.getString("modelo"),
+                        rs.getString("numero"),
+                        rs.getDouble("minutos"),
+                        rs.getDouble("costoMinuto"),
+                        rs.getDouble("megasGb"),
+                        rs.getDouble("porcentajeDes"),
+                        rs.getDouble("costoGb"));
+                plan.calcularPagoMensual();
+                listaec.add(plan);
+            }
+
+            obtenerConexion().close();
+        } catch (SQLException e) {
+            System.out.println("Exception: insertarPlanPostPagoMinutosMegasEconomico");
+            System.out.println(e.getMessage());
+
+        }
+        return listaec;
     }
 
 }
