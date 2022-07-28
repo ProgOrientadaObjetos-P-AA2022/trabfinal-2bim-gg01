@@ -73,9 +73,26 @@ public abstract class PlanCelular {
     public String obtenerNumeroCelular() {
         return numeroCelular;
     }
-    
-    public double obtenerCostoMensual(){
+
+    public double obtenerCostoMensual() {
         return costoMensual;
+    }
+
+    @Override
+    public String toString() {
+        String cadena = String.format("Datos del Propietario\n"
+                + "\tNombres: %s\n"
+                + "\tCedula: %s\n"
+                + "\tCiudad: %s\n"
+                + "Datos del Celular\n"
+                + "\tMarca: %s\n"
+                + "\tModelo: %s\n"
+                + "\tNúmero: %s\n",
+                obtenerNombres(), obtenerCedula(),
+                obtenerCiudad(), obtenerMarcaCelular(),
+                obtenerModeloCelular(), obtenerNumeroCelular());
+
+        return cadena;
     }
 
 }

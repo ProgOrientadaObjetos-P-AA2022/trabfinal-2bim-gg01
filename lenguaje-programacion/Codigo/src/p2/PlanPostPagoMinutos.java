@@ -6,12 +6,6 @@ package p2;
  */
 public class PlanPostPagoMinutos extends PlanCelular {
 
-    /*
-    minutos nacionales
-    costo minuto nacional
-    minutos internacionales
-    costo minuto internacional
-     */
     private double minNacional;
     private double costoNacional;
     private double minInter;
@@ -26,7 +20,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
         minInter = mI;
         costoInter = cI;
     }
-    
+    /*
     //Constructor para Lectura
     public PlanPostPagoMinutos(String n, String c, String ciu, String mar,
             String mod, String num, double mN, double cN, double mI, double cI,
@@ -38,7 +32,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
         costoInter = cI;
         costoMensual = vM;
     }
-
+*/
     public void establecerMinNacional(double m) {
         minNacional = m;
     }
@@ -79,23 +73,12 @@ public class PlanPostPagoMinutos extends PlanCelular {
     @Override
     public String toString() {
         String reporte = String.format("Plan Post Pago Megas\n"
-                + "  Nombres: %s\n"
-                + "  Cedula: %s\n"
-                + "  Ciudad: %s\n"
-                + "  Marca: %s\n"
-                + "  Modelo: %s\n"
-                + "  Numero: %s\n"
-                + "  Cantidad Minutos Nacionales: %.2f\n"
-                + "  Costo Minutos Nacionales: %.3f\n"
-                + "  Cantidad Minutos Internacionales: %.3f\n"
-                + "  Costo Minutos Internacionales: %.2f\n"
-                + " Valor Mensual: %.2f\n",
-                obtenerNombres(),
-                obtenerCedula(),
-                obtenerCiudad(),
-                obtenerMarcaCelular(),
-                obtenerModeloCelular(),
-                obtenerNumeroCelular(),
+                + super.toString()+ "\nFactura\n"
+                + "\tCantidad Minutos Nacionales: %.2f\n"
+                + "\tCosto Minutos Nacionales: %.3f\n"
+                + "\tCantidad Minutos Internacionales: %.3f\n"
+                + "\tCosto Minutos Internacionales: %.2f\n"
+                + "\tValor Mensual: %.2f\n",
                 obtenerMinNacional(),
                 obtenerCostoNacional(),
                 obtenerMinInter(),

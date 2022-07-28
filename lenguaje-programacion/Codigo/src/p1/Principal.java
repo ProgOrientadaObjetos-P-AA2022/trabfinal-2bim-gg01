@@ -3,12 +3,12 @@ package p1;
 import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import p2.PlanPostPagoMinutos;
+import p2.*;
 import p3.Enlace;
 
 /**
  *
- * @author Daniel
+ * @author TaisBalcazar
  */
 public class Principal {
 
@@ -16,6 +16,7 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
         Scanner entrada = new Scanner(System.in);
         Enlace c = new Enlace();
         boolean bandera = false;
@@ -28,6 +29,7 @@ public class Principal {
                 System.out.println("[1] para Ingresar un tipo de Plan Celular\n"
                         + "[2] para Leer la Base de Datos");
                 op = entrada.nextInt();
+
                 if (op == 1) {
                     System.out.println("Ingrese un tipo de Plan Celular\n"
                             + " 1 -> Plan Minutos\n"
@@ -48,9 +50,10 @@ public class Principal {
                     String modelo = entrada.nextLine();
                     System.out.println("Ingrese Numero de Celular");
                     String numero = entrada.nextLine();
+
                     switch (opc) {
                         case 1 -> {
-                            System.out.println("Ingrese cantidad de Minutos "
+                            System.out.println("Ingrese la cantidad de Minutos "
                                     + "Nacionales");
                             double mN = entrada.nextDouble();
                             System.out.println("Ingrese "
@@ -63,24 +66,66 @@ public class Principal {
                                     + "costo por Minuto Internacional");
                             double cI = entrada.nextDouble();
 
-                            PlanPostPagoMinutos plan = new PlanPostPagoMinutos(
+                            PlanPostPagoMinutos plan1 = new PlanPostPagoMinutos(
                                     nom, ced, ciu, marca, modelo, numero,
                                     mN, cN, mI, cI);
-                            plan.calcularPagoMensual();
-                            c.insertarPlanPostPagoMinutos(plan);
+                            plan1.calcularPagoMensual();
+                            c.insertarPostPagoMinutos(plan1);
                         }
                         case 2 -> {
+                            System.out.println("Ingrese el Número de Megas (Gb):");
+                            int numG = entrada.nextInt();
+                            System.out.println("Ingrese el Costo por Mega:");
+                            double cosG = entrada.nextDouble();
+                            PlanPostPagoMegas plan2 = new PlanPostPagoMegas(
+                                    nom, ced, ciu, marca, modelo, numero,
+                                    numG, cosG, 10.0);
+                            plan2.calcularPagoMensual();
+
+                            c.insertarPostPagoMegas(plan2);
                         }
                         case 3 -> {
+                            System.out.println("Ingrese el Número de minutos:");
+                            int min = entrada.nextInt();
+                            System.out.println("Ingrese el Costo por minuto:");
+                            double costo = entrada.nextDouble();
+                            System.out.println("Ingrese el Número de Megas (Gb):");
+                            int numG = entrada.nextInt();
+                            System.out.println("Ingrese el Costo por Mega:");
+                            double cosG = entrada.nextDouble();
+                            PlanPostPagoMinutosMegas mm
+                                    = new PlanPostPagoMinutosMegas(
+                                            nom, ced, ciu, marca, modelo, numero,
+                                            min, costo, numG, cosG);
+                            mm.calcularPagoMensual();
+
+                            c.insertarPlanMinutosMegas(mm);
+
                         }
+
                         case 4 -> {
+                            System.out.println("Ingrese el Número de minutos:");
+                            int min = entrada.nextInt();
+                            System.out.println("Ingrese el Costo por minuto:");
+                            double costo = entrada.nextDouble();
+                            System.out.println("Ingrese el Número de Megas (Gb):");
+                            int numG = entrada.nextInt();
+                            System.out.println("Ingrese el Costo por Mega:");
+                            double cosG = entrada.nextDouble();
+                            PlanPostPagoMinutosMegasEconomico mmE
+                                    = new PlanPostPagoMinutosMegasEconomico(
+                                            nom, ced, ciu, marca, modelo, numero,
+                                            min, costo, numG, cosG, 10);
+                            mmE.calcularPagoMensual();
+
+                            c.insertarPlanMinutosMegasEc(mmE);
                         }
                     }
                 } else {
                     if (op == 2) {
                         System.out.println("------Base de Datos------");
                         for (int i = 0; i < c.obtenerDataPlanes().size(); i++) {
-                          System.out.printf("%s", c.obtenerDataPlanes().get(i));
+                            System.out.printf("%s", c.obtenerDataPlanes().get(i));
                         }
                     } else {
                         System.out.println("Ingrese una opción válida");
