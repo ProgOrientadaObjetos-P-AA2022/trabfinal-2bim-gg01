@@ -71,6 +71,7 @@ public class Principal {
                                     mN, cN, mI, cI);
                             plan1.calcularPagoMensual();
                             c.insertarPostPagoMinutos(plan1);
+                            break;
                         }
                         case 2 -> {
                             System.out.println("Ingrese el Número de Megas (Gb):");
@@ -81,8 +82,8 @@ public class Principal {
                                     nom, ced, ciu, marca, modelo, numero,
                                     numG, cosG, 10.0);
                             plan2.calcularPagoMensual();
-
                             c.insertarPostPagoMegas(plan2);
+                            break;
                         }
                         case 3 -> {
                             System.out.println("Ingrese el Número de minutos:");
@@ -98,8 +99,8 @@ public class Principal {
                                             nom, ced, ciu, marca, modelo, numero,
                                             min, costo, numG, cosG);
                             plan3.calcularPagoMensual();
-
                             c.insertarPostPagoMinutosMegas(plan3);
+                            break;
 
                         }
 
@@ -117,22 +118,63 @@ public class Principal {
                                             nom, ced, ciu, marca, modelo, numero,
                                             min, costo, numG, cosG, 10);
                             plan4.calcularPagoMensual();
-
                             c.insertarPostPagoMinutosMegasEc(plan4);
+                            break;
                         }
                     }
-                }
-                else {
-                    
+                    if (op < 1 || op > 4) {
+                        System.out.println("Opción inválida. Debe ingresar un "
+                                + "número entre del 1 y 4");
+                    }
+                } else {
+
                     if (op == 2) {
-                        System.out.println("------Base de Datos------");
-                        for (int i = 0; i < c.obtenerDataPlanes().size(); i++) {
-                            System.out.printf("%s", c.obtenerDataPlanes().get(i));
+                        System.out.println("Ingrese un tipo de Plan Celular\n"
+                                + " 1 -> Plan Minutos\n"
+                                + " 2 -> Plan Megas\n"
+                                + " 3 -> Plan Minutos-Megas\n"
+                                + " 4 -> Plan Minutos-Megas Económico");
+                        System.out.println("------Base de Datos------\n"
+                                + " 1 -> Mostrar Tabla Plan Minutos\n"
+                                + " 2 -> Mostrar Tabla Plan Megas\n"
+                                + " 3 -> Mostrar Tabla Plan Minutos-Megas\n"
+                                + " 4 -> Mostrar Tabla Plan Minutos-Megas Económico");
+                        opc = entrada.nextInt();
+                        switch (opc) {
+                            case 1 -> {
+                                for (int i = 0; i < c.obtenerDataPostPagoMinutos().size(); i++) {
+                                    System.out.printf("%s", c.obtenerDataPostPagoMinutos().get(i));
+                                }
+                                break;
+                            }
+
+                            case 2 -> {
+                                for (int i = 0; i < c.obtenerDataPostPagoMegas().size(); i++) {
+                                    System.out.printf("%s", c.obtenerDataPostPagoMegas().get(i));
+                                }
+                                break;
+                            }
+                            case 3 -> {
+                                for (int i = 0; i < c.obtenerDataPostPagoMinutosMegas().size(); i++) {
+                                    System.out.printf("%s", c.obtenerDataPostPagoMinutosMegas().get(i));
+                                }
+                                break;
+                            }
+
+                            case 4 -> {
+                                for (int i = 0; i < c.obtenerDataPostPagoMinutosMegasEc().size(); i++) {
+                                    System.out.printf("%s", c.obtenerDataPostPagoMinutosMegasEc().get(i));
+                                }
+                                break;
+                            }
                         }
-                    } else {
-                        System.out.println("Ingrese una opción válida");
+                        if (op < 1 || op > 4) {
+                            System.out.println("Opción inválida. Debe ingresar un "
+                                    + "número entre del 1 y 4");
+                        }
                     }
                 }
+
             } catch (InputMismatchException e) {
                 System.out.println("Ingrese una opción válida(1 o 2)");
             }
@@ -150,6 +192,6 @@ public class Principal {
                 }
             }
         } while (bandera == false);
-    }
 
+    }
 }
