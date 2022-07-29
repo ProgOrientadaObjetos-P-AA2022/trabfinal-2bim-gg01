@@ -39,7 +39,7 @@ public class Enlace {
         try {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = String.format("INSERT INTO PlanPostPagoMegas "
+            String data = String.format("INSERT INTO PlanPostPagoMinutos "
                     + "(nombres, cedula, ciudad, marca, modelo, "
                     + "numero, minNacional, costoNacional,"
                     + "minInter, costoInter, costoMensual) "
