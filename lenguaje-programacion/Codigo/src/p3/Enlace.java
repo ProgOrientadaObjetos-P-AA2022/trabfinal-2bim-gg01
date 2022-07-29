@@ -44,8 +44,7 @@ public class Enlace {
                     + "numero, minNacional, costoNacional,"
                     + "minInter, costoInter, costoMensual) "
                     + "values ('%s', '%s', '%s', '%s', '%s', "
-                    + "'%s', '%.2f', '%.2f', "
-                    + "'%.2f', '%.2f', '%.2f')",
+                    + "'%s', %s, %s,%s, %s, %s)",
                     plan.obtenerNombres(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),
@@ -109,7 +108,7 @@ public class Enlace {
                     + "(nombres, cedula, ciudad, marca, modelo, "
                     + "numero, megasGb, costoGb, tarifaBase,costoMensual) "
                     + "values ('%s', '%s', '%s', '%s', '%s', "
-                    + "'%s', '%.2f', '%.2f','%.2f', '%.2f')",
+                    + "'%s', %s, %s, %s, %s)",
                     plan.obtenerNombres(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),
@@ -171,7 +170,7 @@ public class Enlace {
                     + "(nombres, cedula, ciudad, marca, modelo, "
                     + "numero, minutos, costoMinuto, megasGb, costoGb, costoMensual) "
                     + "values ('%s', '%s', '%s', '%s', '%s', "
-                    + "'%s', '%.2f', '%.2f','%.2f', '%.2f', '%.2f')",
+                    + "'%s', %s, %s, %s, %s, %s)",
                     plan.obtenerNombres(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),
@@ -236,8 +235,8 @@ public class Enlace {
                     + "(nombres, cedula, ciudad, marca, modelo,numero,"
                     + " minutos, costoMinuto, megasGb, costoGb, porcentajeDes, "
                     + "costoMensual) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', "
-                    + "'%s', '%.2f', '%.2f','%.2f', '%.2f', '%.2f')",
+                    + "values ('%s', '%s', '%s', '%s', '%s','%s', "
+                    + "'%.2f', %s,%s, %s, %s,%s)",
                     plan.obtenerNombres(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),

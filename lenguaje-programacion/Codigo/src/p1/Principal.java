@@ -2,6 +2,7 @@ package p1;
 
 import java.sql.SQLException;
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 import p2.*;
 import p3.Enlace;
@@ -18,11 +19,14 @@ public class Principal {
     public static void main(String[] args) {
 
         Scanner entrada = new Scanner(System.in);
+        entrada.useLocale(Locale.US);
+
         Enlace c = new Enlace();
         boolean bandera = false;
         int opc;
         int op;
         char salida;
+        
 
         do {
             try {
@@ -75,23 +79,25 @@ public class Principal {
                         }
                         case 2 -> {
                             System.out.println("Ingrese el Número de Megas (Gb):");
-                            int numG = entrada.nextInt();
+                            double numG = entrada.nextDouble();
                             System.out.println("Ingrese el Costo por Mega:");
                             double cosG = entrada.nextDouble();
+                            System.out.println("Ingrese la tarifa base:");
+                            double tarifa = entrada.nextDouble();
                             PlanPostPagoMegas plan2 = new PlanPostPagoMegas(
                                     nom, ced, ciu, marca, modelo, numero,
-                                    numG, cosG, 10.0);
+                                    numG, cosG, tarifa);
                             plan2.calcularPagoMensual();
                             c.insertarPostPagoMegas(plan2);
                             break;
                         }
                         case 3 -> {
                             System.out.println("Ingrese el Número de minutos:");
-                            int min = entrada.nextInt();
+                            double min = entrada.nextDouble();
                             System.out.println("Ingrese el Costo por minuto:");
                             double costo = entrada.nextDouble();
                             System.out.println("Ingrese el Número de Megas (Gb):");
-                            int numG = entrada.nextInt();
+                            double numG = entrada.nextDouble();
                             System.out.println("Ingrese el Costo por Mega:");
                             double cosG = entrada.nextDouble();
                             PlanPostPagoMinutosMegas plan3
@@ -106,17 +112,18 @@ public class Principal {
 
                         case 4 -> {
                             System.out.println("Ingrese el Número de minutos:");
-                            int min = entrada.nextInt();
+                            double min = entrada.nextDouble();
                             System.out.println("Ingrese el Costo por minuto:");
                             double costo = entrada.nextDouble();
                             System.out.println("Ingrese el Número de Megas (Gb):");
-                            int numG = entrada.nextInt();
+                            double numG = entrada.nextDouble();
                             System.out.println("Ingrese el Costo por Mega:");
                             double cosG = entrada.nextDouble();
+                            double descuento = 10;
                             PlanPostPagoMinutosMegasEconomico plan4
                                     = new PlanPostPagoMinutosMegasEconomico(
                                             nom, ced, ciu, marca, modelo, numero,
-                                            min, costo, numG, cosG, 10);
+                                            min, costo, numG, cosG, descuento);
                             plan4.calcularPagoMensual();
                             c.insertarPostPagoMinutosMegasEc(plan4);
                             break;
@@ -129,11 +136,6 @@ public class Principal {
                 } else {
 
                     if (op == 2) {
-                        System.out.println("Ingrese un tipo de Plan Celular\n"
-                                + " 1 -> Plan Minutos\n"
-                                + " 2 -> Plan Megas\n"
-                                + " 3 -> Plan Minutos-Megas\n"
-                                + " 4 -> Plan Minutos-Megas Económico");
                         System.out.println("------Base de Datos------\n"
                                 + " 1 -> Mostrar Tabla Plan Minutos\n"
                                 + " 2 -> Mostrar Tabla Plan Megas\n"

@@ -92,7 +92,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
                 obtenerCostoMinuto(),
                 obtenerMegasGb(),
                 obtenerCostoGb(),
-                obtenerPorcentajeDes() * 100,
+                obtenerPorcentajeDes(),
                 obtenerCostoMensual());
         return cadena;
     }

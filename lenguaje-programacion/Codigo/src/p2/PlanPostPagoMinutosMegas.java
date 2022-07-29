@@ -70,9 +70,9 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
     public String toString() {
         String cadena = String.format("\nPlan PostPago MinutosMegas\n"
                 + super.toString() + "\nFactura\n"
-                + "\tMinutos: %d\n"
+                + "\tMinutos: %.2f\n"
                 + "\tCosto minuto : %.2f\n"
-                + "\tNumero de Megas (GB): %d\n"
+                + "\tNumero de Megas (GB): %.2f\n"
                 + "\tCosto del GB: %.2f\n"
                 + "\tPago mensual: %.2f\n",
                 obtenerMinutos(),

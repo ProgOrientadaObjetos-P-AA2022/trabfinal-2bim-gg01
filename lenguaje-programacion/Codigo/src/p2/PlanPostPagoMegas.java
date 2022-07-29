@@ -72,7 +72,7 @@ tarifa base
 
     @Override
     public String toString() {
-        String cadena = String.format("\nPlan PostPago Megas\n"
+        String cadena = String.format("\n-------PLAN POST PAGO MEGAS-------\n"
                 + super.toString() + "\nFactura\n"
                 + "\tNumero de Megas (GB): %.2f\n"
                 + "\tCosto del GB: %.2f\n"
