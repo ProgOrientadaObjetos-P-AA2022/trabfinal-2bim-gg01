@@ -20,19 +20,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
         minInter = mI;
         costoInter = cI;
     }
-    /*
-    //Constructor para Lectura
-    public PlanPostPagoMinutos(String n, String c, String ciu, String mar,
-            String mod, String num, double mN, double cN, double mI, double cI,
-            double vM) { 
-        super(n, c, ciu, mar, mod, num);
-        minNacional = mN;
-        costoNacional = cN;
-        minInter = mI;
-        costoInter = cI;
-        costoMensual = vM;
-    }
-*/
+
     public void establecerMinNacional(double m) {
         minNacional = m;
     }

@@ -168,7 +168,8 @@ public class Enlace {
             Statement statement = obtenerConexion().createStatement();
             String data = String.format("INSERT INTO PlanPostPagoMinutosMegas "
                     + "(nombres, cedula, ciudad, marca, modelo, "
-                    + "numero, minutos, costoMinuto, megasGb, costoGb, costoMensual) "
+                    + "numero, minutos, costoMinuto, megasGb, costoGb, "
+                    + "costoMensual) "
                     + "values ('%s', '%s', '%s', '%s', '%s', "
                     + "'%s', %s, %s, %s, %s, %s)",
                     plan.obtenerNombres(),
@@ -226,12 +227,14 @@ public class Enlace {
 
     }
 
-    public void insertarPostPagoMinutosMegasEc(PlanPostPagoMinutosMegasEconomico plan) {
+    public void insertarPostPagoMinutosMegasEc
+        (PlanPostPagoMinutosMegasEconomico plan) {
 
         try {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = String.format("INSERT INTO PlanPostPagoMinutosMegasEconomico "
+            String data = String.format("INSERT INTO "
+                    + "PlanPostPagoMinutosMegasEconomico "
                     + "(nombres, cedula, ciudad, marca, modelo,numero,"
                     + " minutos, costoMinuto, megasGb, costoGb, porcentajeDes, "
                     + "costoMensual) "
@@ -259,7 +262,8 @@ public class Enlace {
         }
     }
 
-    public ArrayList<PlanPostPagoMinutosMegasEconomico> obtenerDataPostPagoMinutosMegasEc() {
+    public ArrayList<PlanPostPagoMinutosMegasEconomico> 
+        obtenerDataPostPagoMinutosMegasEc() {
         ArrayList<PlanPostPagoMinutosMegasEconomico> listaec = new ArrayList<>();
         try {
             establecerConexion();
@@ -268,7 +272,8 @@ public class Enlace {
 
             ResultSet rs = statement.executeQuery(data);
             while (rs.next()) {
-                PlanPostPagoMinutosMegasEconomico plan = new PlanPostPagoMinutosMegasEconomico(
+                PlanPostPagoMinutosMegasEconomico plan = 
+                        new PlanPostPagoMinutosMegasEconomico(
                         rs.getString("nombres"),
                         rs.getString("cedula"),
                         rs.getString("ciudad"),

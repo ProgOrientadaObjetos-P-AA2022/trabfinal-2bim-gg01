@@ -15,8 +15,8 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
     private double megasGb;
     private double costoGb;
 
-    public PlanPostPagoMinutosMegas(String n, String c, String ciu, String mar, String mod,
-            String num, double min, double cmin, double mG, double cG) {
+    public PlanPostPagoMinutosMegas(String n, String c, String ciu, String mar, 
+            String mod,String num, double min, double cmin, double mG, double cG) {
         super(n, c, ciu, mar, mod, num);
         minutos = min;
         costoMinuto = cmin;
@@ -61,10 +61,6 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
         costoMensual = (minutos * costoMinuto) + (megasGb * costoGb);
     }
 
-    @Override
-    public double obtenerCostoMensual() {
-        return costoMensual;
-    }
 
     @Override
     public String toString() {

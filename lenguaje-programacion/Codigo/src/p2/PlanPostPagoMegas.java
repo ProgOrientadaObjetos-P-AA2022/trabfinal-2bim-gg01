@@ -6,11 +6,6 @@ package p2;
  */
 public class PlanPostPagoMegas extends PlanCelular {
 
-    /*
-    megas expresado en gigas
-costo por cada giga
-tarifa base
-     */
     private double megasGb;
     private double costoGb;
     private double tarifaBase;
@@ -23,7 +18,6 @@ tarifa base
         costoGb = cG;
         tarifaBase = t;
     }
-
     /*
     //Constructor para Lectura
     public PlanPostPagoMegas(String n, String c, String ciu, String mar,
@@ -36,6 +30,7 @@ tarifa base
         costoMensual = vM;
     }
      */
+
     public void establecerMegasGb(double n) {
         megasGb = n;
     }
@@ -63,11 +58,6 @@ tarifa base
     @Override
     public void calcularPagoMensual() {
         costoMensual = (megasGb * costoGb) + tarifaBase;
-    }
-
-    @Override
-    public double obtenerCostoMensual() {
-        return costoMensual;
     }
 
     @Override

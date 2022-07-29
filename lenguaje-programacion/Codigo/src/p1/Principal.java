@@ -144,28 +144,39 @@ public class Principal {
                         opc = entrada.nextInt();
                         switch (opc) {
                             case 1 -> {
-                                for (int i = 0; i < c.obtenerDataPostPagoMinutos().size(); i++) {
-                                    System.out.printf("%s", c.obtenerDataPostPagoMinutos().get(i));
+                                for (int i = 0; i < 
+                                        c.obtenerDataPostPagoMinutos().size();
+                                        i++) {
+                                    System.out.printf("%s", 
+                                            c.obtenerDataPostPagoMinutos().get(i));
                                 }
                                 break;
                             }
 
                             case 2 -> {
-                                for (int i = 0; i < c.obtenerDataPostPagoMegas().size(); i++) {
-                                    System.out.printf("%s", c.obtenerDataPostPagoMegas().get(i));
+                                for (int i = 0; i < 
+                                        c.obtenerDataPostPagoMegas().size(); i++) {
+                                    System.out.printf("%s", 
+                                            c.obtenerDataPostPagoMegas().get(i));
                                 }
                                 break;
                             }
                             case 3 -> {
-                                for (int i = 0; i < c.obtenerDataPostPagoMinutosMegas().size(); i++) {
-                                    System.out.printf("%s", c.obtenerDataPostPagoMinutosMegas().get(i));
+                                for (int i = 0; i < 
+                                        c.obtenerDataPostPagoMinutosMegas().size();
+                                        i++) {
+                                    System.out.printf("%s",
+                                            c.obtenerDataPostPagoMinutosMegas().get(i));
                                 }
                                 break;
                             }
 
                             case 4 -> {
-                                for (int i = 0; i < c.obtenerDataPostPagoMinutosMegasEc().size(); i++) {
-                                    System.out.printf("%s", c.obtenerDataPostPagoMinutosMegasEc().get(i));
+                                for (int i = 0; i < 
+                                        c.obtenerDataPostPagoMinutosMegasEc().size();
+                                        i++) {
+                                    System.out.printf("%s", 
+                                            c.obtenerDataPostPagoMinutosMegasEc().get(i));
                                 }
                                 break;
                             }

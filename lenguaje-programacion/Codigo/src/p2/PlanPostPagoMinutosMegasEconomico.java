@@ -74,11 +74,6 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     }
 
     @Override
-    public double obtenerCostoMensual() {
-        return costoMensual;
-    }
-
-    @Override
     public String toString() {
         String cadena = String.format("\nPlan PostPago MinutosMegas Economico\n"
                 + super.toString() + "\nFactura\n"
